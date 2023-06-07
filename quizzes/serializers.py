@@ -34,7 +34,22 @@ class OptionSerializer(serializers.ModelSerializer):
         Args:
             quiz_id : 퀴즈 인스턴스의 id.
         """
-        quiz_id = kwargs.pop("quiz_id")
-        for option in data:
-            option["quiz"] = quiz_id
+        quiz_id = kwargs.pop("quiz_id", None)
+        if quiz_id:
+            for option in data:
+                option["quiz"] = quiz_id
         super().__init__(instance, data, **kwargs)
+
+
+class QuizGetSerializer(serializers.ModelSerializer):
+    """퀴즈 제공 시리얼라이저
+
+    퀴즈를 제공할때 사용됩니다.
+    퀴즈마다 보기도 함께 제공합니다.
+    """
+
+    options = OptionSerializer(many=True)
+
+    class Meta:
+        model = Quiz
+        fields = "__all__"
