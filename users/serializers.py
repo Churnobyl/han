@@ -7,6 +7,8 @@ import random, string
 
 from users.models import User, Achievement
 from users.customtoken import user_email_verify_token
+from users.models import User
+from django.contrib.sessions.models import Session
 
 
 def password_maker():
@@ -97,6 +99,24 @@ class UserSerializer(serializers.ModelSerializer):
         return instance
 
 
+class UserBattleSerializer(serializers.ModelSerializer):
+    achieve = AchievementSerializer(many=True, required=False)
+
+    class Meta:
+        model = User
+        fields = [
+            "id",
+            "email",
+            "username",
+            "image",
+            "experiment",
+            "level",
+            "day",
+            "wear_achievement",
+            "achieve",
+        ]
+
+
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
@@ -104,6 +124,16 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token["email"] = user.email
         token["username"] = user.username
         return token
+
+    def validate(self, attrs):
+        data = super().validate(attrs)
+
+        request = self.context["request"]
+        request.session.save()
+
+        data["session_data"] = request.session.session_key
+
+        return data
 
 
 class RankingSerializer(serializers.ModelSerializer):
