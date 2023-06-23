@@ -3,14 +3,15 @@ from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 from channels.security.websocket import AllowedHostsOriginValidator
-import battle.routing
 from urllib.parse import parse_qs
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from channels.db import database_sync_to_async
 from channels.middleware import BaseMiddleware
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
+django_asgi_app = get_asgi_application()
 
+import battle.routing
 
 class JwtTokenAuthMiddleware(BaseMiddleware):
     """JWT토큰인증 미들웨어
@@ -33,7 +34,7 @@ class JwtTokenAuthMiddleware(BaseMiddleware):
 
 application = ProtocolTypeRouter(
     {
-        "http": get_asgi_application(),
+        "http": django_asgi_app,
         "websocket": AllowedHostsOriginValidator(
             JwtTokenAuthMiddleware(URLRouter(battle.routing.websocket_urlpatterns))
         ),
