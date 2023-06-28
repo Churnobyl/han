@@ -27,9 +27,10 @@
 - [주요기능](#주요기능)
 - [기술스택](#기술스택)
 - [라이브러리](#라이브러리)
-- [배포](#배포)
+- [아키텍쳐](#아키텍쳐)
 - [팀원](#팀원)
 - [프론트엔드](#프론트엔드)
+- [배포](#배포)
 
 <br>
 <br>
@@ -37,10 +38,11 @@
 ---
 ## 소개
 
-
-🎈매일 쉽고 재밌게 퀴즈를 풀며 한국어를 학습하는 서비스.
-
 <br>
+
+<p style="font-size: 24px; font-weight:600">🎈매일 쉽고 재밌게 퀴즈를 풀며 한국어를 학습하는 서비스.</p>
+
+
 <br>
 
 ---
@@ -48,11 +50,11 @@
 
 하나의 서비스로 운용하기 위한 다양한 기능들을 담고 있습니다:
 
-- 일일 퀴즈(랜덤), 유형별 퀴즈 제공(4종류). <u>크롤링을 통한 다양한 퀴즈 데이터 확보</u>
+- 일일 퀴즈(랜덤), 유형별 퀴즈 제공(4종류). <b>크롤링을 통한 다양한 퀴즈 데이터 확보</b>
 - 웹소켓을 이용한 실시간 겨루기(👷‍♂️개발중👷‍♀️), 방 만들기, 친구 초대.
-- <u>3종 소셜로그인</u>, 이메일 인증, 비밀번호 초기화 이메일 발송.
+- <b>3종 소셜로그인</b>, 이메일 인증, 비밀번호 초기화 이메일 발송.
 - 유저의 퀴즈 제안, 퀴즈 신고.
-- <u>경험치, 레벨업, 연속학습일수, 칭호, 랭킹</u> 등 흥미요소.
+- <b>경험치, 레벨업, 연속학습일수, 칭호, 랭킹</b> 등 흥미요소.
 
 <p align="center">
   <img src = "https://i.ibb.co/Z8XT9C5/md4.png" width=700>
@@ -162,7 +164,7 @@ PostgreSQL
     <tr>
       <td align="center"><a href="https://github.com/barryjung"><img src="https://avatars.githubusercontent.com/u/122099543?v=4" width=80px; alt=""/><br /><sub><b>리더 : 정현균</b></sub></a><br /></td>
       <td align="center"><a href="https://github.com/Churnobyl"><img src="https://avatars.githubusercontent.com/u/77923267?v=4" width="80px;" alt=""/><br /><sub><b>부리더 : 성철민 </b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/0v0baek"><img src="" width="80px;" alt=""/><br /><sub><b>팀원 : 백지현</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/0v0baek"><img src="https://i.ibb.co/7jmwgsh/3-profile.jpg" width="80px;" alt=""/><br /><sub><b>팀원 : 백지현</b></sub></a><br /></td>
       <td align="center"><a href="https://github.com/chanhyoYun"><img src="" width="80px;" alt=""/><br /><sub><b>팀원 : 윤찬효</b></sub></a><br /></td>
      </tr>
   </tbody>
@@ -177,3 +179,9 @@ PostgreSQL
 - 레포지토리
 https://github.com/Churnobyl/han_front
 
+<br>
+<br>
+
+---
+## 배포
+https://barryjung.com/
